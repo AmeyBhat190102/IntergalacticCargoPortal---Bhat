@@ -17,7 +17,7 @@ export function sortCargo(records) {
 export function convertWeight(weight, isAdmin) {
   const kg = parseFloat(weight);
   if (isAdmin) {
-    return { value: kg.toFixed(2), unit: "KG" };
+    return { value: kg, unit: "KG" };
   }
-  return { value: (kg * 2.20462).toFixed(2), unit: "LBS" };
+  return { value: kg * 2.20462, unit: "LBS" };
 }
