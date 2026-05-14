@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
 from app.database import close_db_pool, init_db_pool
-from app.routers import auth
+from app.routers import auth, cargo
 
 
 @asynccontextmanager
@@ -32,6 +32,7 @@ app.add_middleware(
 )
 
 app.include_router(auth.router)
+app.include_router(cargo.router, prefix="/api")
 
 @app.get("/health", tags=["Health"])
 def health():

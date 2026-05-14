@@ -48,6 +48,6 @@ def get_current_user(
 
 def require_admin(current_user: dict = Depends(get_current_user)) -> dict:
     """Raises 403 with exact required message if user is not admin."""
-    if current_user["role"] != "admin":
+    if current_user["role"] != "Admin":
         raise InsufficientClearanceException
     return current_user
